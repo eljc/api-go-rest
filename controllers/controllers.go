@@ -34,3 +34,21 @@ func Save(w http.ResponseWriter, r *http.Request) {
 	database.DB.Create(&product)
 	json.NewEncoder(w).Encode(product)
 }
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	var p models.Product
+	database.DB.Delete(&p, id)
+	json.NewEncoder(w).Encode(p)
+}
+
+func Update(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	var p models.Product
+	database.DB.First(&p, id)
+	json.NewDecoder(r.Body).Decode(&p)
+	database.DB.Save(&p)
+	json.NewEncoder(w).Encode(p)
+}
