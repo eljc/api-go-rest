@@ -1,37 +1,4 @@
-definitions:
-  models.Product:
-    properties:
-      id:
-        type: integer
-      name:
-        type: string
-      price:
-        type: number
-    type: object
 info:
   contact: {}
-paths:
-  /:
-    get:
-      consumes:
-      - application/json
-      description: Home
-      parameters:
-      - description: name search by q
-        format: email
-        in: query
-        name: q
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/models.Product'
-            type: array
-      summary: Home page products
-      tags:
-      - home
+paths: {}
 swagger: "2.0"
