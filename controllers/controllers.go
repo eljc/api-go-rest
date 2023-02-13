@@ -10,6 +10,16 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Home godoc
+//
+//	@Summary      Home page products
+//	@Description  Home
+//	@Tags         home
+//	@Accept       json
+//	@Produce      json
+//	@Param        q    query     string  false  "name search by q"  Format(email)
+//	@Success      200  {array}   models.Product
+//	@Router       / [get]
 func Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Home Page")
 }
